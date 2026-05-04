@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DNS Tunnel Classifier</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>DNS Tunnel Classifier</h1>
+    <p class="sub">Soft-voting ensemble (LogReg + RandomForest + GradientBoosting) over a 10-second DNS traffic window.</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="row">
+        <label for="sample-select"><strong>Autofill from test set</strong></label>
+        <select id="sample-select"><option value="">— select an example —</option></select>
+        <button id="btn-fill" type="button">Load</button>
+        <button id="btn-zero" type="button" class="ghost">Reset to zero</button>
+        <span id="sample-meta" class="meta"></span>
+      </div>
+    </section>
+
+    <form id="feat-form">
+      <div id="groups"></div>
+      <div class="actions">
+        <button type="submit" id="btn-classify">Classify window</button>
+      </div>
+    </form>
+
+    <section id="result" class="panel hidden">
+      <div id="verdict-row">
+        <div id="verdict"></div>
+        <div id="prob"></div>
+      </div>
+      <div class="bar-wrap">
+        <div id="prob-bar"></div>
+      </div>
+      <details>
+        <summary>Per-base-learner probabilities</summary>
+        <table id="base-table">
+          <thead><tr><th>Base learner</th><th>P(tunnel)</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </details>
+      <p id="truth" class="meta"></p>
+    </section>
+
+    <footer>
+      <span>36 features · threshold 0.5 · model: <code>dns_tunnel_classifier.joblib</code></span>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
