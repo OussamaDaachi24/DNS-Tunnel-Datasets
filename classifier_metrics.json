@@ -1,25 +1,15 @@
 {
-  "random_cv": {
-    "auc": 0.9999999725991101,
-    "acc": 0.9999369681689252,
-    "f1": 0.9999586520566183
-  },
-  "group_cv": {
-    "auc": 0.9999986315194525,
-    "acc": 0.9995901588782029,
-    "f1": 0.9997198700041329
-  },
-  "within_pcap_time_cv": {
-    "auc": 0.9999982032175343,
-    "acc": 0.99811872909699,
-    "f1": 0.9987639060568603
-  },
+  "version": "v3_no_gb_ensemble",
+  "base_learners": [
+    "lr\u00d71",
+    "rf\u00d72",
+    "svm\u00d71"
+  ],
   "heldout_unseen_pcaps": {
     "auc": 1.0,
     "acc": 1.0,
     "f1": 1.0
   },
-  "auc_gap_random_minus_group": 0.0,
   "n_features": 36,
   "train_rows": 31731,
   "test_rows": 6980
